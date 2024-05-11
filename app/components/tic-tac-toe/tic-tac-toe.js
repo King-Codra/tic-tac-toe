@@ -1,21 +1,12 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-
-const winConditions = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6],
-];
+import { winConditions } from '../../utils/win-conditions';
+import { inject as service } from '@ember/service';
 
 export default class TicTacToeComponent extends Component {
-  @tracked cells = Array(9).fill(null);
-  @tracked winner = null;
+  @service gameState;
+  @tracked cells = this.gameState.freshBoard;
   currentPlayer = 'X';
 
   // checks if there is a winner after every cell update
@@ -50,30 +41,30 @@ export default class TicTacToeComponent extends Component {
   play(i) {
     console.log(winConditions);
     console.log(`Cells before clicking anything: ${this.cells}`);
-    if (this.cells[i] === null && !this.winner) {
+    if (this.cells[i] === null && !this.gameState.winner) {
       let cellsAfterStart = this.cells.slice();
       cellsAfterStart[i] = this.currentPlayer;
       this.cells = cellsAfterStart;
 
       const currentWinner = this.hasWinner;
       if (currentWinner) {
-        this.winner = currentWinner;
+        this.gameState.setWinner(currentWinner);
+        this.gameState.saveGame(this.winner, this.cells);
       }
-
-      // if (this.hasWinner) {
-      //   console.log(`Player ${this.currentPlayer} has won!`);
-      // }
 
       console.log(`cellsAfterStart: ${cellsAfterStart}`);
       console.log(
         `Cell ${i} clicked, ${this.currentPlayer} now owns this cell.`,
       );
 
-      if (!this.winner) {
+      // If there is no winner yet, the game will continue to run
+      if (!this.gameState.winner) {
         this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
       }
 
       console.log(`Player switched to ${this.currentPlayer}`);
+
+      console.log(`${this.gameState.winner} has won!`);
     }
   }
 }

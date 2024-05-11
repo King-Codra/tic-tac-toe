@@ -1,0 +1,18 @@
+<BsModal
+  class="winner-modal"
+  @open={{true}}
+  @onHidden={{this.closeModal}}
+  as |modal|
+>
+  <modal.header>
+    <h5 class="modal-title">
+      {{concat this.gameState.winner " has won!"}}
+    </h5>
+  </modal.header>
+  <modal.body> You could opt to play again, or view recent games!</modal.body>
+  <modal.footer>
+
+    <BsButton class="prev-game" @onClick={{this.goToHistory}}>Previous games</BsButton>
+    <BsButton class="play-again" @onClick={{this.restartGame}}>Play again!</BsButton>
+  </modal.footer>
+</BsModal>
