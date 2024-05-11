@@ -1,0 +1,7 @@
+<div class="game-board">
+  {{#each this.cells as |cell i|}}
+    <div class="cell" {{on "click" (fn this.play i)}}>{{cell}}</div>
+  {{/each}}
+</div>
+
+{{yield}}
