@@ -1,0 +1,24 @@
+{{page-title ""}}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="fully-centered flex-align-center">
+      <div class="flex-align-center">
+        <LinkTo
+          class="btn btn-secondary home-btn flex-align-center"
+          @route="play"
+        >Play<img src="play.png" /></LinkTo>
+        <LinkTo
+          class="btn btn-dark home-btn flex-align-center"
+          @route="history"
+        >View History<img src="history.png" /></LinkTo>
+      </div>
+    </div>
+  </body>
+</html>
+
+{{outlet}}

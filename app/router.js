@@ -6,4 +6,8 @@ export default class Router extends EmberRouter {
   rootURL = config.rootURL;
 }
 
-Router.map(function () {});
+// Before you deleted all past-games components, routes & templates... Next time just do this.route('history', {path: '/:past-games'});
+Router.map(function () {
+  this.route('play');
+  this.route('history');
+});

@@ -1,0 +1,197 @@
+@import "node_modules/bootstrap/scss/bootstrap";
+
+.header {
+  margin-top: 2.5vh;
+}
+
+// Actually not completely vertically centered ;)
+.fully-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+  width: 100%;
+}
+
+.flex-center-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 900px;
+  margin: auto;
+  margin-top: 5vh;
+}
+
+.cell {
+  width: 300px;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.048);
+  font-family: "Arial";
+  font-size: 20em;
+  cursor: pointer;
+  border: 1px solid #333;
+}
+
+h1 {
+  font-size: 10rem;
+}
+
+.winner-modal {
+  height: 100%;
+}
+
+.winner-modal .modal-common {
+  font-size: 30px;
+}
+.winner-modal .modal-content {
+  position: relative;
+  height: auto;
+  margin: auto;
+  margin-top: 33em;
+  text-align: center;
+  // Only width that comes close to being fully centered
+  width: 20.5vw;
+}
+
+.winner-modal .modal-title {
+  font-size: 48px;
+  flex: 1 0 auto;
+  text-align: center;
+}
+
+.winner-modal .modal-footer {
+  flex-wrap: nowrap;
+}
+
+.history-title {
+  margin-top: 10px;
+}
+
+.history-container {
+  flex-direction: column;
+}
+
+.history-list {
+  list-style-type: none;
+  padding: 10;
+  text-align: center;
+  width: 300px;
+}
+
+.history-game-entry {
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 24px;
+  width: 100%;
+  transition: opacity 0.5 ease-out;
+  opacity: 1;
+}
+
+.history.game-entry.fade-out {
+  opacity: 0;
+}
+
+.history-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.history-cells {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.048);
+  font-family: "Arial";
+  border: 1px solid #333;
+  font-size: 40px;
+}
+
+.history-time-stamp {
+  margin-top: 5px;
+  font-style: italic;
+  font-size: 15px;
+}
+
+.nav {
+  gap: 15px;
+}
+
+.history-title {
+  font-size: 48px;
+}
+
+// Buttons:
+.custom-btn {
+  padding: 2.25rem 5rem;
+  font-size: 2.5rem;
+  border-radius: 5rem;
+  width: 150px;
+  height: 75px;
+  margin-top: 15px;
+}
+
+.custom-btn img {
+  height: 75px;
+  width: auto;
+}
+
+.winner-modal button.btn {
+  width: 50%;
+}
+
+.modal-play-btn {
+  padding: 2.25rem 5rem;
+  font-size: 2.15rem;
+  border-radius: 5rem;
+}
+
+.home-btn {
+  display: flex;
+  flex-direction: column;
+  padding: 2.25rem 5rem;
+  font-size: 7.5rem;
+  border-radius: 5rem;
+  margin-bottom: 10px;
+}
+
+.home-btn img {
+  height: 75px;
+  width: 75px;
+  align-self: center;
+}
+
+.del-btn {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  opacity: 90%; // was too black.
+}
+
+.del-btn :hover {
+  opacity: 65%;
+}
+.del-btn img {
+  height: 18px;
+  width: 18px;
+}
+
+.ttticon {
+  margin-top: 15px;
+  height: 15vh;
+  width: auto;
+}
