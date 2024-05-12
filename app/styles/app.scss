@@ -19,24 +19,6 @@
   align-items: center;
 }
 
-.home-btns {
-  display: flex;
-  flex-direction: column;
-}
-
-.play-btn {
-  padding: 2.25rem 5rem;
-  font-size: 7.5rem;
-  border-radius: 5rem;
-}
-
-.prev-game-btn {
-  padding: 2.25rem 5rem;
-  margin-top: 15px;
-  font-size: 5rem;
-  border-radius: 5rem;
-}
-
 .game-board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -65,6 +47,9 @@ h1 {
   height: 100%;
 }
 
+.winner-modal .modal-common {
+  font-size: 30px;
+}
 .winner-modal .modal-content {
   position: relative;
   height: auto;
@@ -79,29 +64,6 @@ h1 {
   font-size: 48px;
   flex: 1 0 auto;
   text-align: center;
-}
-
-.winner-modal .modal-body {
-  font-size: 30px;
-}
-
-.winner-modal .play-again {
-  background-color: rgb(66, 70, 73);
-  border-color: rgb(55, 59, 62);
-}
-
-.winner-modal .prev-game {
-  background-color: rgb(104, 104, 104);
-  border-color: rgb(93, 93, 93);
-  border-bottom-color: rgb(55, 59, 62);
-}
-
-.winner-modal button.btn {
-  font-size: 36px;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .winner-modal .modal-footer {
@@ -154,19 +116,39 @@ h1 {
   font-size: 15px;
 }
 
-.history-page-btn {
-  padding: 2.25rem 5rem;
-  margin-top: 15px;
-  font-size: 2.5rem;
-  border-radius: 2.5rem;
-  width: 150px;
-  height: 75px;
-}
-
 .nav {
   gap: 15px;
 }
 
 .history-title {
   font-size: 48px;
+}
+
+// Buttons:
+.custom-btn {
+  padding: 2.25rem 5rem;
+  font-size: 2.5rem;
+  border-radius: 5rem;
+  width: 150px;
+  height: 75px;
+  margin-top: 15px;
+}
+
+.winner-modal button.btn {
+  width: 50%;
+}
+
+.modal-play-btn {
+  padding: 2.25rem 5rem;
+  font-size: 2.15rem;
+  border-radius: 5rem;
+}
+
+.home-btn {
+  display: flex;
+  flex-direction: column;
+  padding: 2.25rem 5rem;
+  font-size: 7.5rem;
+  border-radius: 5rem;
+  margin-bottom: 10px;
 }

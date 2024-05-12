@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <div class="fully-centered">
-      <div class="home-btns">
-        <LinkTo class="btn btn-dark play-btn center" @route="play">Play</LinkTo>
+    <div class="fully-centered flex-align-center">
+      <div class="flex-align-center">
         <LinkTo
-          class="btn btn-secondary prev-game-btn center"
+          class="btn btn-secondary home-btn flex-align-center"
+          @route="play"
+        >Play</LinkTo>
+        <LinkTo
+          class="btn btn-dark home-btn flex-align-center"
           @route="history"
         >View History</LinkTo>
       </div>

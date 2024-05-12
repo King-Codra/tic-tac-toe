@@ -4,14 +4,16 @@
 
 <div class="nav flex-center-align">
   <LinkTo
-    class="btn btn-secondary history-page-btn flex-center-align"
+    class="btn btn-secondary custom-btn flex-center-align"
     @route="index"
   >Home</LinkTo>
   <button
-    class="btn btn-dark history-page-btn flex-center-align" type="button" {{on "click" this.restartGame}}
+    class="btn btn-dark custom-btn flex-center-align"
+    type="button"
+    {{on "click" this.restartGame}}
   >Restart</button>
   <LinkTo
-    class="btn btn-secondary history-page-btn flex-center-align"
+    class="btn btn-secondary custom-btn flex-center-align"
     @route="history"
   >History</LinkTo>
 </div>
