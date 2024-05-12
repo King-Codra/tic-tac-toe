@@ -1,8 +1,16 @@
 <div class="history-container fully-centered">
 
   <ul class="history-list">
-    {{#each @games as |game|}}
+    {{#each @games as |game i|}}
+
       <li class="history-game-entry flex-center-align">
+        <button
+          type="button"
+          class="btn del-btn flex-center-align"
+          {{on "click" (fn this.deleteGame i)}}
+        ><img src="delete.png" /><BsTooltip @placement="right">Delete entry.
+            <br />
+            Requires refresh to display changes</BsTooltip></button>
         {{#if (eq game.winner "Draw")}}
           <strong>Draw!</strong>
         {{else}}
@@ -10,7 +18,7 @@
           {{game.winner}}
         {{/if}}
         <div class="history-board">
-          {{#each game.cells as |cell i|}}
+          {{#each game.cells as |cell|}}
             <div class="history-cells flex-center-align">{{cell}}</div>
           {{/each}}
         </div>

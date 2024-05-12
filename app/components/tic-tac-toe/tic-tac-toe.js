@@ -9,7 +9,9 @@ export default class TicTacToeComponent extends Component {
   @tracked cells;
   currentPlayer = 'X';
 
-  // This constructor and willDestroy is the only reasonable way to reset the board consistenly, as the cells array will otherwise be loaded/reloaded from itself when trying to reset. Or will show empty board but keep values intact
+  // This constructor and willDestroy is the only reasonable way to reset the board consistenly,
+  // as the cells array will otherwise be loaded / reloaded from itself when trying to reset.
+  // Or will show empty board but keep values intact
   constructor() {
     super(...arguments);
     this.cells = this.gameState.freshBoard;
@@ -28,7 +30,6 @@ export default class TicTacToeComponent extends Component {
     this.cells = this.gameState.freshBoard.slice();
   }
 
-  // checks if there is a winner after every cell update
   get hasWinner() {
     for (let combi of winConditions) {
       const [firstInRow, secondInRow, thirdInRow] = combi;
@@ -46,7 +47,7 @@ export default class TicTacToeComponent extends Component {
         this.cells[firstInRow] === this.cells[secondInRow] &&
         this.cells[firstInRow] === this.cells[thirdInRow]
       ) {
-        console.log(`this.cells: ${this.cells}`);
+        // console.log(`this.cells: ${this.cells}`);
         // console.log(`this.cells[firstInRow]: ${this.cells[firstInRow]}`);
         // console.log(`this.cells[secondInRow]: ${this.cells[secondInRow]}`);
         // console.log(`this.cells[thirdInRow]: ${this.cells[thirdInRow]}`);
@@ -74,19 +75,18 @@ export default class TicTacToeComponent extends Component {
         this.gameState.saveGame('Draw', this.cells);
       }
 
-      console.log(`cellsAfterStart: ${cellsAfterStart}`);
-      console.log(
-        `Cell ${i} clicked, ${this.currentPlayer} now owns this cell.`,
-      );
+      // console.log(`cellsAfterStart: ${cellsAfterStart}`);
+      // console.log(
+      //   `Cell ${i} clicked, ${this.currentPlayer} now owns this cell.`,
+      // );
 
       // If there is no winner yet, the game will continue to run
       if (!this.gameState.winner) {
         this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X';
       }
 
-      console.log(`Player switched to ${this.currentPlayer}`);
-
-      console.log(`${this.gameState.winner} has won!`);
+      // console.log(`Player switched to ${this.currentPlayer}`);
+      // console.log(`${this.gameState.winner} has won!`);
     }
   }
 

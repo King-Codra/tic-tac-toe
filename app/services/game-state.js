@@ -21,11 +21,23 @@ export default class GameStateService extends Service.extend(Evented) {
   saveGame(winner, cells) {
     const game = {
       winner: this.winner,
-      cells: cells,
+      cells,
       playedAt: new Date().toLocaleString(),
     };
     // push had the wrong sort for the history page. quick&dirty fix
     this.previousGames.unshift(game);
+
+    if (game)
+      localStorage.setItem('pastGames', JSON.stringify(this.previousGames));
+  }
+
+  deleteGame(i) {
+    let updatedGames = this.previousGames.filter((_, index) => index !== i);
+    this.previousGames = updatedGames;
+    this.refreshLocalStorage();
+  }
+
+  refreshLocalStorage() {
     localStorage.setItem('pastGames', JSON.stringify(this.previousGames));
   }
 
