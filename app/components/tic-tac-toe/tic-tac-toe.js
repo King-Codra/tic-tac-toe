@@ -13,24 +13,24 @@ export default class TicTacToeComponent extends Component {
   get hasWinner() {
     for (let combi of winConditions) {
       const [firstInRow, secondInRow, thirdInRow] = combi;
-      console.log(
-        `before if block: firstInRow: ${firstInRow} = ${this.cells[firstInRow]}`,
-      );
-      console.log(
-        `before if block: secondInRow: ${secondInRow} = ${this.cells[secondInRow]}`,
-      );
-      console.log(
-        `before if block: thirdInRow: ${thirdInRow} = ${this.cells[thirdInRow]}`,
-      );
+      // console.log(
+      //   `before if block: firstInRow: ${firstInRow} = ${this.cells[firstInRow]}`,
+      // );
+      // console.log(
+      //   `before if block: secondInRow: ${secondInRow} = ${this.cells[secondInRow]}`,
+      // );
+      // console.log(
+      //   `before if block: thirdInRow: ${thirdInRow} = ${this.cells[thirdInRow]}`,
+      // );
       if (
         this.cells[firstInRow] &&
         this.cells[firstInRow] === this.cells[secondInRow] &&
         this.cells[firstInRow] === this.cells[thirdInRow]
       ) {
         console.log(`this.cells: ${this.cells}`);
-        console.log(`this.cells[firstInRow]: ${this.cells[firstInRow]}`);
-        console.log(`this.cells[secondInRow]: ${this.cells[secondInRow]}`);
-        console.log(`this.cells[thirdInRow]: ${this.cells[thirdInRow]}`);
+        // console.log(`this.cells[firstInRow]: ${this.cells[firstInRow]}`);
+        // console.log(`this.cells[secondInRow]: ${this.cells[secondInRow]}`);
+        // console.log(`this.cells[thirdInRow]: ${this.cells[thirdInRow]}`);
         return this.cells[firstInRow];
       }
     }

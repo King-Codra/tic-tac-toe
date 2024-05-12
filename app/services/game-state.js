@@ -22,5 +22,6 @@ export default class GameStateService extends Service {
   newGame() {
     this.winner = null;
     this.freshBoard = Array(9).fill(null);
+    window.location.reload(true);
   }
 }
