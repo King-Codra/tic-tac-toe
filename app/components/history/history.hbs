@@ -2,17 +2,20 @@
 
   <ul class="history-list">
     {{#each @games as |game|}}
-      <li class="history-game-entry">
-        <strong>Winner:</strong>
-        {{game.winner}}
-
+      <li class="history-game-entry flex-center-align">
+        {{#if (eq game.winner "Draw")}}
+          <strong>Draw!</strong>
+        {{else}}
+          <strong>Winner:</strong>
+          {{game.winner}}
+        {{/if}}
         <div class="history-board">
           {{#each game.cells as |cell i|}}
             <div class="history-cells flex-center-align">{{cell}}</div>
           {{/each}}
         </div>
-        <strong>Played on:</strong>
-        {{game.playedAt}}
+        <div class="history-time-stamp">
+          {{format-date game.playedAt formatType="default"}}</div>
       </li>
     {{/each}}
   </ul>

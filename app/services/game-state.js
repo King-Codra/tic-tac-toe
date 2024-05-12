@@ -7,13 +7,25 @@ export default class GameStateService extends Service.extend(Evented) {
   @tracked freshBoard = Array(9).fill(null);
   @tracked previousGames = [];
 
+  // Without this constructor, LocalStorage will sometimes get reset when the user comes back to the Play route through unexpected navigation. The following code ensures the previousGames array will always first check Local Storage and build from there, unless there is no game in LS
+  constructor() {
+    super(...arguments);
+    this.loadPreviousGames();
+  }
+
+  loadPreviousGames() {
+    const games = localStorage.getItem('pastGames');
+    this.previousGames = games ? JSON.parse(games) : [];
+  }
+
   saveGame(winner, cells) {
     const game = {
       winner: this.winner,
       cells: cells,
       playedAt: new Date().toLocaleString(),
     };
-    this.previousGames.push(game);
+    // push had the wrong sort for the history page. quick&dirty fix
+    this.previousGames.unshift(game);
     localStorage.setItem('pastGames', JSON.stringify(this.previousGames));
   }
 

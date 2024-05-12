@@ -9,6 +9,7 @@ export default class TicTacToeComponent extends Component {
   @tracked cells;
   currentPlayer = 'X';
 
+  // This constructor and willDestroy is the only reasonable way to reset the board consistenly, as the cells array will otherwise be loaded/reloaded from itself when trying to reset. Or will show empty board but keep values intact
   constructor() {
     super(...arguments);
     this.cells = this.gameState.freshBoard;
@@ -68,6 +69,9 @@ export default class TicTacToeComponent extends Component {
       if (currentWinner) {
         this.gameState.setWinner(currentWinner);
         this.gameState.saveGame(this.winner, this.cells);
+      } else if (!this.cells.includes(null)) {
+        this.gameState.setWinner('Draw');
+        this.gameState.saveGame('Draw', this.cells);
       }
 
       console.log(`cellsAfterStart: ${cellsAfterStart}`);

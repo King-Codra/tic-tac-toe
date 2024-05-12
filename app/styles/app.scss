@@ -10,6 +10,7 @@
   justify-content: center;
   align-items: center;
   min-height: 75vh;
+  width: 100%;
 }
 
 .flex-center-align {
@@ -110,6 +111,7 @@ h1 {
 .history-title {
   margin-top: 10px;
 }
+
 .history-container {
   flex-direction: column;
 }
@@ -117,14 +119,16 @@ h1 {
 .history-list {
   list-style-type: none;
   padding: 10;
+  text-align: center;
+  width: 300px;
 }
 
 .history-game-entry {
+  flex-direction: column;
   margin-bottom: 20px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  max-width: 100%;
   font-size: 24px;
 }
 
@@ -133,16 +137,21 @@ h1 {
   grid-template-columns: repeat(3, 1fr);
   gap: 5px;
   margin-top: 5px;
-  max-width: 60px;
 }
 
 .history-cells {
-  width: 20px;
-  height: 20px;
+  width: 60px;
+  height: 60px;
   background-color: rgba(0, 0, 0, 0.048);
   font-family: "Arial";
   border: 1px solid #333;
-  font-size: 20px;
+  font-size: 40px;
+}
+
+.history-time-stamp {
+  margin-top: 5px;
+  font-style: italic;
+  font-size: 15px;
 }
 
 .history-page-btn {
