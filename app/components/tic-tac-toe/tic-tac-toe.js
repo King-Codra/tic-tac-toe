@@ -6,8 +6,26 @@ import { inject as service } from '@ember/service';
 
 export default class TicTacToeComponent extends Component {
   @service gameState;
-  @tracked cells = this.gameState.freshBoard;
+  @tracked cells;
   currentPlayer = 'X';
+
+  constructor() {
+    super(...arguments);
+    this.cells = this.gameState.freshBoard;
+    this.gameState.on('boardReset', this, this.resetBoard);
+  }
+
+  willDestroy() {
+    super.willDestroy(...arguments);
+    this.gameState.off('boardReset', this, this.resetBoard);
+  }
+
+  @action
+  resetBoard() {
+    console.log(`this.gameState.freshBoard = ${this.gameState.freshBoard}`);
+    console.log(`this.cells = ${this.cells}`);
+    this.cells = this.gameState.freshBoard.slice();
+  }
 
   // checks if there is a winner after every cell update
   get hasWinner() {
@@ -39,8 +57,8 @@ export default class TicTacToeComponent extends Component {
 
   @action
   play(i) {
-    console.log(winConditions);
-    console.log(`Cells before clicking anything: ${this.cells}`);
+    // console.log(winConditions);
+    // console.log(`Cells before clicking anything: ${this.cells}`);
     if (this.cells[i] === null && !this.gameState.winner) {
       let cellsAfterStart = this.cells.slice();
       cellsAfterStart[i] = this.currentPlayer;
@@ -66,5 +84,11 @@ export default class TicTacToeComponent extends Component {
 
       console.log(`${this.gameState.winner} has won!`);
     }
+  }
+
+  // Feel like this function could use a helper? As I'm using it twice anyway
+  @action
+  restartGame() {
+    this.gameState.newGame();
   }
 }

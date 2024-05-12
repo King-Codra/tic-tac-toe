@@ -1,20 +1,22 @@
-import Service from '@ember/service';
+import Service, { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import Evented from '@ember/object/evented';
 
-export default class GameStateService extends Service {
+export default class GameStateService extends Service.extend(Evented) {
   @tracked winner = null;
   @tracked freshBoard = Array(9).fill(null);
   @tracked previousGames = [];
 
   saveGame(winner, cells) {
     const game = {
-      winner,
-      cells,
-      timeOfGame: new Date().toLocaleString(),
+      winner: this.winner,
+      cells: cells,
+      playedAt: new Date().toLocaleString(),
     };
     this.previousGames.push(game);
     localStorage.setItem('pastGames', JSON.stringify(this.previousGames));
   }
+
   setWinner(winner) {
     this.winner = winner;
   }
@@ -22,6 +24,6 @@ export default class GameStateService extends Service {
   newGame() {
     this.winner = null;
     this.freshBoard = Array(9).fill(null);
-    window.location.reload(true);
+    this.trigger('boardReset');
   }
 }

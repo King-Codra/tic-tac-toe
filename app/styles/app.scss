@@ -12,6 +12,30 @@
   min-height: 75vh;
 }
 
+.flex-center-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-btns {
+  display: flex;
+  flex-direction: column;
+}
+
+.play-btn {
+  padding: 2.25rem 5rem;
+  font-size: 7.5rem;
+  border-radius: 5rem;
+}
+
+.prev-game-btn {
+  padding: 2.25rem 5rem;
+  margin-top: 15px;
+  font-size: 5rem;
+  border-radius: 5rem;
+}
+
 .game-board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -26,9 +50,6 @@
   width: 300px;
   height: 300px;
   background-color: rgba(0, 0, 0, 0.048);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: "Arial";
   font-size: 20em;
   cursor: pointer;
@@ -39,16 +60,7 @@ h1 {
   font-size: 10rem;
 }
 
-.btn-lg {
-  padding: 2.25rem 5rem;
-  font-size: 7.5rem;
-  border-radius: 5rem;
-}
-
 .winner-modal {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
 }
 
@@ -92,8 +104,60 @@ h1 {
 }
 
 .winner-modal .modal-footer {
-  justify-content: center;
-  display: flex;
-  text-align: center;
   flex-wrap: nowrap;
+}
+
+.history-title {
+  margin-top: 10px;
+}
+.history-container {
+  flex-direction: column;
+}
+
+.history-list {
+  list-style-type: none;
+  padding: 10;
+}
+
+.history-game-entry {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-width: 100%;
+  font-size: 24px;
+}
+
+.history-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  margin-top: 5px;
+  max-width: 60px;
+}
+
+.history-cells {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 0, 0, 0.048);
+  font-family: "Arial";
+  border: 1px solid #333;
+  font-size: 20px;
+}
+
+.history-page-btn {
+  padding: 2.25rem 5rem;
+  margin-top: 15px;
+  font-size: 2.5rem;
+  border-radius: 2.5rem;
+  width: 150px;
+  height: 75px;
+}
+
+.nav {
+  gap: 15px;
+}
+
+.history-title {
+  font-size: 48px;
 }

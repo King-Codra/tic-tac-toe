@@ -1,0 +1,21 @@
+<div class="history-container fully-centered">
+
+  <ul class="history-list">
+    {{#each @games as |game|}}
+      <li class="history-game-entry">
+        <strong>Winner:</strong>
+        {{game.winner}}
+
+        <div class="history-board">
+          {{#each game.cells as |cell i|}}
+            <div class="history-cells flex-center-align">{{cell}}</div>
+          {{/each}}
+        </div>
+        <strong>Played on:</strong>
+        {{game.playedAt}}
+      </li>
+    {{/each}}
+  </ul>
+</div>
+
+{{yield}}

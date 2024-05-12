@@ -7,7 +7,13 @@
   </head>
   <body>
     <div class="fully-centered">
-      <LinkTo class="btn btn-dark btn-lg center" @route="play">Play</LinkTo>
+      <div class="home-btns">
+        <LinkTo class="btn btn-dark play-btn center" @route="play">Play</LinkTo>
+        <LinkTo
+          class="btn btn-secondary prev-game-btn center"
+          @route="history"
+        >View History</LinkTo>
+      </div>
     </div>
   </body>
 </html>

@@ -1,0 +1,17 @@
+{{page-title "History"}}
+
+<div class="nav flex-center-align">
+  <LinkTo
+    class="btn btn-secondary history-page-btn flex-center-align"
+    @route="index"
+  >Home</LinkTo>
+  <LinkTo
+    class="btn btn-dark history-page-btn flex-center-align"
+    @route="play"
+  >Play</LinkTo>
+</div>
+<h2 class="history-title text-center">History</h2>
+
+<History::History @games={{this.model}} />
+
+{{outlet}}
